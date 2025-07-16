@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import mammoth from "mammoth";
-import * as pdf from "pdf-parse";
+import pdf from "pdf-parse";
 
 export interface ProcessingResult {
   text: string;

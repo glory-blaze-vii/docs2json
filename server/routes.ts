@@ -38,7 +38,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const conversions = await storage.getAllConversions();
       res.json(conversions);
-    } catch (error) {
+    } catch (error: any) {
       res.status(500).json({ error: error.message });
     }
   });
@@ -54,7 +54,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       res.json(conversion);
-    } catch (error) {
+    } catch (error: any) {
       res.status(500).json({ error: error.message });
     }
   });
@@ -85,7 +85,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       processDocumentAsync(conversion.id, req.file.path, req.file.mimetype, outputStructure, processingMode);
 
       res.json(conversion);
-    } catch (error) {
+    } catch (error: any) {
       res.status(500).json({ error: error.message });
     }
   });
@@ -96,7 +96,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const id = parseInt(req.params.id);
       await storage.deleteConversion(id);
       res.json({ success: true });
-    } catch (error) {
+    } catch (error: any) {
       res.status(500).json({ error: error.message });
     }
   });
